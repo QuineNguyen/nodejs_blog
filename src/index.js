@@ -13,23 +13,32 @@ const route = require('./routes');
 app.use(express.static(path.join(__dirname, 'public'))); // Khi gap path nay, voi nhung file tinh express se phai kiem tra thu muc cung cap cho no trong phuong thuc static
 // localhost:3000 coi la thu muc public
 
-app.use(express.urlencoded({
-    extended: true
-}));
+app.use(
+    express.urlencoded({
+        extended: true,
+    }),
+);
 app.use(express.json());
 
 // HTTP logger
 // app.use(morgan('combined'));
 
 // Template engine
-app.engine('hbs', handlebars.engine({
-    extname: '.hbs'
-})); // App su dung template engine la handlebars voi ten la handlebars su dung thu vien 'express-handlebars'
-app.set('view engine', 'hbs');// Dat cho ung dung express su dung view engine la handlebars
-app.set('views', path.join(__dirname, 'resources\\views'));
+app.engine(
+    'hbs',
+    handlebars.engine({
+        extname: '.hbs',
+    }),
+); // App su dung template engine la handlebars voi ten la handlebars su dung thu vien 'express-handlebars'
+
+      app.set(
+    'view engine',
+    'hbs',
+); // Dat cho ung dung express su dung view engine la handlebars
+        app.set('views', path.join(__dirname, 'resources\\views'));
 
 // Routes init: Khoi tao tuyen duong
-route(app);
+route(          app);
 // Lo trinh:
 // Di tu ham route(app) truyen express instance (app) vao trong route
 // File index.js trong routes nhan duoc express instance va chay app.use('/news', newRouter)
@@ -41,7 +50,6 @@ route(app);
 // Moi khi co path /news thi express se choc vao newsRouter, newsRouter duoc hieu la cap con cua /news
 // Phan / trong router.use('/', newsController.index) duoc hieu la tuyen duong choc vao dau tien khi truy xuat vao /news
 // /news se choc vao phuong thuc index cua bien newsController
-
 
 // app.get('/', (req, res) => {
 //     // var a = 1;
@@ -80,12 +88,11 @@ route(app);
 //     res.send('');
 // });
 
-
 // Dinh nghia route
 // localhost - 127.0.0.1
 app.listen(port, () => {
-  console.log(`Example app listening on http://localhost:${port}`);
-})
+    console.log(`Example app listening on http://localhost:${port}`);
+});
 // Nodemon: Lang nghe su thay doi cua file trong source code va reload lai ung dung ma khong can phai Ctrl + C de thoat server
 // Morgan: Log HTTP request, giup nhin duoc log cua nhung request len node server
 
@@ -102,7 +109,7 @@ app.listen(port, () => {
 // Mo hinh MVC
 // Model: Thanh phan tuong tac voi data source (Vi du: Noi dung cua khoa hoc hien thi ra luu trong database)
 // View: Thanh phan chi chua file view (HTML, CSS)
-// Controller: 
+// Controller:
 // Bat dau tu client nguoi dung (Browser). Khi go vao trinh duyet mot website thi se request len tren server qua HTTP Protocol
 // Di len web server thi se di qua tang Routes (Chinh la tang dinh tuyen voi phuong thuc gi, path gi thi truy cap code gi)
 // Dispatcher: Hanh dong goi sang controller
@@ -113,3 +120,6 @@ app.listen(port, () => {
 // Khi do se nhan duoc View hoan chinh bao gom Ten khoa hoc, Noi dung khoa hoc, Hinh anh,... va tra ve cho Client qua Web Server su dung HTTP Protocol
 
 // Local host: Host nam tren may tinh cuc bo (tren chinh may tinh cua ban). Ban than localhost dong vai tro la server
+
+// Lint-staged: Chay nhung file da duoc add vao git va phai match voi pattern duoc dinh nghia trong package.json
+// Co the bo npm run beautiful neu da ap dung husky
