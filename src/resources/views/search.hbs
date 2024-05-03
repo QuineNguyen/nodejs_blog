@@ -1,0 +1,31 @@
+<div class="mt-4">
+    <form method="post" action="">
+        {{!-- Action chi viec submit o dau --}}
+        {{!-- Neu khong nhap action hoac de trong action thi mac dinh se an vao chinh URL hien tai chua form va gan them query parameters --}}
+        <div class="form-group">
+            <label for="search-input">Từ khóa</label>
+            <input type="text" name="q" class="form-control" id="search-input" placeholder="Nhập từ khóa...">
+            {{!-- Them name de tao ra query parameters --}}
+            {{!-- Lay the input co name thi lay value cua name do va truyen len tren URL duoi dang query parameters --}}
+            {{!-- Trong truong hop de the input ma khong nhap value cho no thi van se truyen len duoi dang query parameters nhung se khong co value --}}
+        </div>
+        <div class="form-group">
+            <label for="gender-input">Từ khóa</label>
+            <select name="gender" class="form-control" id="gender-input">
+                <option value="">-- Chọn giới tính --</option>
+                <option value="male">Nam</option>
+                <option value="female">Nữ</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+    </form>
+    {{!-- Khong tao ra method="get" thi form van de mac dinh phuong thuc get --}}
+    {{!-- Khi nhap duong dan va nhan enter thi trinh duyet se gui di phuong thuc get --}}
+    {{!-- Khi submit mot form co phuong thuc post thi mac dinh submit tai chinh URL hien tai va doi phuong thuc sang post --}}
+    {{!-- Trong truong hop vua moi chuyen huong sang phuong thuc post, tat ca nhung hanh vi reload lai trang tai URL nay se o phuong thuc post --}}
+    {{!-- Trong phuong thuc post, voi hanh dong submit form HTML se sinh ra Form Data. No se gui value duoi dang {key, value} va khong hien thi tren URL --}}
+    {{!-- Form Data khong phai query parameters --}}
+    {{!-- Thanh phan o giua client va controller la middleware --}}
+    {{!-- Express da tich hop san middleware de xu ly query parameters --}}
+    {{!-- Con body do express chua tich hop san --}}
+</div>
