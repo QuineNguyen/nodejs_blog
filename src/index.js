@@ -1,3 +1,4 @@
+// DAT TEN FILE HOAC FOLDER LUON DE DAU CACH NEU CO NHIEU DUONG DAN MOI CO THE REQUIRE DUOC DUONG DAN
 const path = require('path');
 const express = require('express'); // Express: Thu vien vua cai trong dependencies
 const morgan = require('morgan');
@@ -9,6 +10,13 @@ const port = 3000; // Run website nay o port nao
 
 const route = require('./routes');
 // Co the tu nap file index.js nen khong can ghi ro ten file vao require
+const db = require('./config/db');
+// Kiem tra ket noi thanh cong
+
+// Connect to DB
+db.connect();
+// Co the goi phuong thuc connect() vi db duoc khai bao la object
+// Khi export ra object thi den khi import trong file index.js cua src thi bien db se la object do va co the goi phuong thuc connect()
 
 app.use(express.static(path.join(__dirname, 'public'))); // Khi gap path nay, voi nhung file tinh express se phai kiem tra thu muc cung cap cho no trong phuong thuc static
 // localhost:3000 coi la thu muc public
@@ -31,14 +39,14 @@ app.engine(
     }),
 ); // App su dung template engine la handlebars voi ten la handlebars su dung thu vien 'express-handlebars'
 
-      app.set(
+app.set(
     'view engine',
     'hbs',
 ); // Dat cho ung dung express su dung view engine la handlebars
-        app.set('views', path.join(__dirname, 'resources\\views'));
+app.set('views', path.join(__dirname, 'resources', 'views')); // Path.join() co the nhan nhieu doi so
 
 // Routes init: Khoi tao tuyen duong
-route(          app);
+route(app);
 // Lo trinh:
 // Di tu ham route(app) truyen express instance (app) vao trong route
 // File index.js trong routes nhan duoc express instance va chay app.use('/news', newRouter)
@@ -91,7 +99,7 @@ route(          app);
 // Dinh nghia route
 // localhost - 127.0.0.1
 app.listen(port, () => {
-    console.log(`Example app listening on http://localhost:${port}`);
+    console.log(`App listening on http://localhost:${port}`);
 });
 // Nodemon: Lang nghe su thay doi cua file trong source code va reload lai ung dung ma khong can phai Ctrl + C de thoat server
 // Morgan: Log HTTP request, giup nhin duoc log cua nhung request len node server
