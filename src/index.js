@@ -4,6 +4,7 @@ const express = require('express'); // Express: Thu vien vua cai trong dependenc
 const morgan = require('morgan');
 // Require: Di vao thu muc node_modules de nap thu vien va luu vao bien express
 const handlebars = require('express-handlebars');
+const methodOverride = require('method-override');
 const app = express(); // Function da duoc xay dung san trong express
 // Tra ve mot doi tuong dai dien cho ung dung nodejs
 const port = 3000; // Run website nay o port nao
@@ -28,6 +29,8 @@ app.use(
 );
 app.use(express.json());
 
+app.use(methodOverride('_method'));
+
 // HTTP logger
 // app.use(morgan('combined'));
 
@@ -36,6 +39,9 @@ app.engine(
     'hbs',
     handlebars.engine({
         extname: '.hbs',
+        helpers: {
+            sum: (a, b) => a + b,
+        }
     }),
 ); // App su dung template engine la handlebars voi ten la handlebars su dung thu vien 'express-handlebars'
 
@@ -131,3 +137,12 @@ app.listen(port, () => {
 
 // Lint-staged: Chay nhung file da duoc add vao git va phai match voi pattern duoc dinh nghia trong package.json
 // Co the bo npm run beautiful neu da ap dung husky
+
+// Cac phuong thuc Restful API: GET, POST, PUT, PATCH, DELETE, OPTIONS, HEAD
+// GET: Gui yeu cau len server, yeu cau server tra lai du lieu cho client
+// POST: Gui yeu cau len server, yeu cau server luu lai du lieu, tao moi du lieu
+// PUT: Chinh sua du lieu (replace document)
+// PATCH: Chinh sua du lieu (replace tung field)
+// DELETE:
+// OPTIONS:
+// HEAD:

@@ -1,17 +1,30 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">F8 Education</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <div class="container">
+    <a class="navbar-brand" href="/">F8 Education</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/courses/create">Dang khoa hoc</a>
-      </li>
-    </ul>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+            <img src="https://scontent.fhan14-5.fna.fbcdn.net/v/t1.6435-1/91372006_123568045930315_1549629899818401792_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=s8ZTZKRYUVEQ7kNvgEuCj-M&_nc_oc=AdhhU7v3d5NNpP3kexkTKzZ4XxVLSXO-w8t0-zqjEquBpi62ktRaVqU2RztaMPeRCqEPm5CW-eZS-bk0DlGeJTai&_nc_ht=scontent.fhan14-5.fna&oh=00_AfDq0C44Bhs1133gKXV9uv6e3n71xIslGCAiaK1DpBGQVw&oe=6661A44B" alt="" class="user-avatar">
+            Huynh Nguyen
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/courses/create">Dang khoa hoc</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/me/stored/courses">Khoa hoc cua toi</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/me/stored/news">Bai viet cua toi</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Dang xuat</a>
+          </div>
+        </div>
+      </ul>
+
+      
+    </div>
   </div>
 </nav>
